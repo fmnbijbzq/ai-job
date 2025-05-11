@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线咨询 - 职称评审政策服务平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tdesign-mobile-vue/dist/tdesign.min.css" />
+    <link rel="stylesheet" href="common.css" />
+    <style>
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 130px);
+        }
+
+        .chat-header {
+            padding: 12px 16px;
+            background-color: white;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .chat-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            background-color: #f5f7fa;
+        }
+
+        .chat-footer {
+            padding: 12px 16px;
+            background-color: white;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .message {
+            margin-bottom: 16px;
+            max-width: 80%;
+        }
+
+        .message-content {
+            padding: 12px;
+            border-radius: 16px;
+            word-break: break-word;
+        }
+
+        .message-time {
+            font-size: 12px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .message-left {
+            align-self: flex-start;
+        }
+
+        .message-right {
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .message-left .message-content {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+        }
+
+        .message-right .message-content {
+            background-color: #0052d9;
+            color: white;
+        }
+
+        .expert-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .expert-avatar {
+            width: 40px;
+            height: 40px;
+            min-width: 40px; /* Prevent horizontal compression */
+            min-height: 40px; /* Prevent vertical compression */
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-right: 12px;
+            overflow: hidden;
+            flex-shrink: 0; /* Prevent the avatar from shrinking */
+            aspect-ratio: 1 / 1; /* Maintain a perfect square */
+        }
+
+        .input-area {
+            display: flex;
+            align-items: center;
+            background-color: #f5f5f5;
+            border-radius: 20px;
+            padding: 8px 16px;
+        }
+
+        .input-area input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .action-buttons {
+            display: flex;
+            align-items: center;
+            margin-left: 8px;
+        }
+
+        .action-button {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 8px;
+            background-color: #f0f0f0;
+            color: #666;
+        }
+
+        .send-button {
+            background-color: #0052d9;
+            color: white;
+        }
+
+        .system-message {
+            text-align: center;
+            margin: 16px 0;
+            font-size: 12px;
+            color: #999;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .quick-reply {
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 16px;
+            padding: 6px 12px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-nav">
+        <div class="flex items-center">
+            <div class="mr-2">◀️</div>
+            <div class="expert-info">
+                <div class="expert-avatar" style="background-color: #0052d9; color: white; display: flex; align-items: center; justify-content: center; font-size: 20px; min-width: 40px; min-height: 40px; flex-shrink: 0; aspect-ratio: 1 / 1;">AI</div>
+                <div>
+                    <div class="font-medium text-base">AI客服</div>
+                    <div class="text-xs text-gray-500">在线 | 平均响应时间: <1分钟</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-blue-500 text-sm">
+            <span class="text-lg">⋮</span>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="chat-container">
+            <!-- 聊天内容区域 -->
+            <div class="chat-body">
+                <!-- 系统消息 -->
+                <div class="system-message">
+                    今天 14:30
+                </div>
+
+                <!-- 系统提示 -->
+                <div class="system-message">
+                    您已成功连接到AI客服，开始咨询服务
+                </div>
+
+                <!-- AI消息 -->
+                <div class="flex message message-left">
+                    <div class="expert-avatar mr-2" style="background-color: #0052d9; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; min-width: 40px; min-height: 40px; flex-shrink: 0; aspect-ratio: 1 / 1;">AI</div>
+                    <div>
+                        <div class="message-content">
+                            您好，我是职称评审政策智能助手，可以为您提供职称评审政策解读、申报条件查询和材料准备指导。请问您有什么需要咨询的问题？
+                        </div>
+                        <div class="message-time">14:31</div>
+                    </div>
+                </div>
+
+                <!-- 用户消息 -->
+                <div class="message message-right">
+                    <div class="message-content">
+                        您好，我是一名高校教师，想咨询一下申报副教授需要满足哪些条件？
+                    </div>
+                    <div class="message-time text-right">14:32</div>
+                </div>
+
+                <!-- AI消息 -->
+                <div class="flex message message-left">
+                    <div class="expert-avatar mr-2" style="background-color: #0052d9; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; min-width: 40px; min-height: 40px; flex-shrink: 0; aspect-ratio: 1 / 1;">AI</div>
+                    <div>
+                        <div class="message-content">
+                            申报副教授的基本条件包括：<br>
+                            1. 具有博士学位，并在讲师岗位工作满2年；或具有硕士学位，在讲师岗位工作满5年<br>
+                            2. 教学工作量达到学校规定要求，教学质量评价良好以上<br>
+                            3. 主持或参与省部级以上科研项目<br>
+                            4. 发表一定数量的学术论文（具体要求因学校和学科而异）<br>
+                            5. 完成规定的继续教育学时<br><br>
+
+                            请问您所在的是哪个省份的高校？不同地区的具体要求可能有所差异。
+                        </div>
+                        <div class="message-time">14:32</div>
+                    </div>
+                </div>
+
+                <!-- 用户消息 -->
+                <div class="message message-right">
+                    <div class="message-content">
+                        我在北京的高校工作
+                    </div>
+                    <div class="message-time text-right">14:33</div>
+                </div>
+
+                <!-- AI消息 -->
+                <div class="flex message message-left">
+                    <div class="expert-avatar mr-2" style="background-color: #0052d9; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; min-width: 40px; min-height: 40px; flex-shrink: 0; aspect-ratio: 1 / 1;">AI</div>
+                    <div>
+                        <div class="message-content">
+                            北京地区高校副教授申报的特殊要求包括：<br>
+                            1. 近五年内主持过至少1项市级及以上科研项目<br>
+                            2. 在核心期刊上发表学术论文不少于3篇，其中至少1篇为CSSCI或SCI收录<br>
+                            3. 教学评价需达到"优秀"等级<br>
+                            4. 每年完成不少于72学时的教学工作量<br><br>
+
+                            您目前的工作年限和已发表的论文情况如何？这样我可以更准确地评估您的申报条件。
+                        </div>
+                        <div class="message-time">14:34</div>
+                    </div>
+                </div>
+
+                <!-- 用户消息 -->
+                <div class="message message-right">
+                    <div class="message-content">
+                        我有博士学位，担任讲师已经3年了。已发表2篇CSSCI论文，但还没有主持过市级以上项目，只参与了一个国家自然科学基金项目。
+                    </div>
+                    <div class="message-time text-right">14:35</div>
+                </div>
+
+                <!-- AI消息 -->
+                <div class="flex message message-left">
+                    <div class="expert-avatar mr-2" style="background-color: #0052d9; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; min-width: 40px; min-height: 40px; flex-shrink: 0; aspect-ratio: 1 / 1;">AI</div>
+                    <div>
+                        <div class="message-content">
+                            根据您提供的信息，您在学历和工作年限方面已经满足基本条件，CSSCI论文也接近要求。不过还有两个方面需要提升：<br><br>
+
+                            1. <b>项目主持经验</b>：建议您申请北京市教委科研项目或校级重点项目，这些相对容易获批<br>
+                            2. <b>论文数量</b>：还需要再发表至少1篇CSSCI或SCI论文<br><br>
+
+                            另外，参与国家自然科学基金项目是很好的经历，建议在申报材料中重点突出您在项目中的具体贡献。您可以考虑明年申报，这段时间重点准备项目申请和论文发表。
+                        </div>
+                        <div class="message-time">14:37</div>
+                    </div>
+                </div>
+
+                <!-- 快速回复选项 -->
+                <div class="quick-replies">
+                    <div class="quick-reply">如何申请北京市教委项目？</div>
+                    <div class="quick-reply">论文发表有什么建议？</div>
+                    <div class="quick-reply">可以破格申报吗？</div>
+                    <div class="quick-reply">需要准备哪些材料？</div>
+                    <div class="quick-reply">谢谢，我明白了</div>
+                </div>
+            </div>
+
+            <!-- 底部输入区域 -->
+            <div class="chat-footer">
+                <div class="flex items-center">
+                    <div class="input-area flex-1">
+                        <input type="text" placeholder="请输入您的问题...">
+                        <div class="action-buttons">
+                            <div class="action-button">😊</div>
+                            <div class="action-button">+</div>
+                        </div>
+                    </div>
+                    <div class="action-button send-button ml-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

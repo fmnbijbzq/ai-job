@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务对接 - 职称评审政策服务平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/tdesign-mobile-vue/dist/tdesign.min.css" />
+    <link rel="stylesheet" href="common.css" />
+    <style>
+        .expert-card {
+            border-radius: 12px;
+            background-color: white;
+            padding: 16px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+        .service-type {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 12px;
+            padding: 16px;
+            width: 48%;
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #f0f7ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            font-size: 24px;
+            color: #0052d9;
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-nav">
+        <div class="flex items-center">
+            <div class="mr-2">◀️</div>
+            <div class="text-lg font-bold">服务对接</div>
+        </div>
+        <div class="text-blue-500 text-sm">筛选</div>
+    </div>
+
+    <div class="content">
+
+    <!-- 服务类型 -->
+    <div class="p-4 bg-white mt-0">
+        <h3 class="font-bold mb-4">服务类型</h3>
+
+        <div class="flex justify-between">
+            <div class="service-type">
+                <div class="service-icon">💬</div>
+                <div class="font-medium">在线咨询</div>
+                <div class="text-xs text-gray-500 mt-1">专家实时解答</div>
+            </div>
+
+            <div class="service-type">
+                <div class="service-icon">📝</div>
+                <div class="font-medium">材料审核</div>
+                <div class="text-xs text-gray-500 mt-1">专业评审指导</div>
+            </div>
+        </div>
+
+        <div class="flex justify-between mt-4">
+            <div class="service-type">
+                <div class="service-icon">📊</div>
+                <div class="font-medium">评审规划</div>
+                <div class="text-xs text-gray-500 mt-1">个性化申报方案</div>
+            </div>
+
+            <div class="service-type">
+                <div class="service-icon">🤝</div>
+                <div class="font-medium">全程代办</div>
+                <div class="text-xs text-gray-500 mt-1">一站式服务</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 推荐专家 -->
+    <div class="p-4 mt-2">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold">推荐专家</h3>
+            <span class="text-blue-500 text-sm">查看全部</span>
+        </div>
+
+        <div class="expert-card">
+            <div class="flex items-start">
+                <div class="w-16 h-16 rounded-full bg-gray-200 mr-3 flex-shrink-0"></div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-center mb-1">
+                        <div class="font-medium">王教授</div>
+                        <div class="text-orange-500 text-sm">★ 4.9</div>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">教育部职称评审专家 | 10年评审经验</div>
+                    <div class="mb-2">
+                        <span class="tag bg-blue-100 text-blue-500">教育领域</span>
+                        <span class="tag bg-green-100 text-green-500">高校系列</span>
+                        <span class="tag bg-purple-100 text-purple-500">正高职称</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-500 text-xs">已服务: 328人</div>
+                        <a href="online-consultation.html" class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm inline-block">立即咨询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="expert-card">
+            <div class="flex items-start">
+                <div class="w-16 h-16 rounded-full bg-gray-200 mr-3 flex-shrink-0"></div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-center mb-1">
+                        <div class="font-medium">李顾问</div>
+                        <div class="text-orange-500 text-sm">★ 4.8</div>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">人社局职称评审顾问 | 8年评审经验</div>
+                    <div class="mb-2">
+                        <span class="tag bg-orange-100 text-orange-500">工程领域</span>
+                        <span class="tag bg-blue-100 text-blue-500">建筑系列</span>
+                        <span class="tag bg-green-100 text-green-500">全级别</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-500 text-xs">已服务: 256人</div>
+                        <a href="online-consultation.html" class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm inline-block">立即咨询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="expert-card">
+            <div class="flex items-start">
+                <div class="w-16 h-16 rounded-full bg-gray-200 mr-3 flex-shrink-0"></div>
+                <div class="flex-grow">
+                    <div class="flex justify-between items-center mb-1">
+                        <div class="font-medium">张主任</div>
+                        <div class="text-orange-500 text-sm">★ 4.7</div>
+                    </div>
+                    <div class="text-gray-500 text-xs mb-2">卫健委职称评审专家 | 12年评审经验</div>
+                    <div class="mb-2">
+                        <span class="tag bg-green-100 text-green-500">医疗领域</span>
+                        <span class="tag bg-purple-100 text-purple-500">卫生系列</span>
+                        <span class="tag bg-blue-100 text-blue-500">副高/正高</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div class="text-gray-500 text-xs">已服务: 189人</div>
+                        <a href="online-consultation.html" class="bg-blue-500 text-white px-4 py-1 rounded-full text-sm inline-block">立即咨询</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </div> <!-- 结束 content div -->
+
+    <!-- 底部导航栏 -->
+    <div class="nav-bar">
+        <div class="nav-item">
+            <div class="nav-icon">🏠</div>
+            <div>首页</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">📚</div>
+            <div>政策库</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">📋</div>
+            <div>自测</div>
+        </div>
+        <div class="nav-item active">
+            <div class="nav-icon">👨‍💼</div>
+            <div>服务</div>
+        </div>
+        <div class="nav-item">
+            <div class="nav-icon">👤</div>
+            <div>我的</div>
+        </div>
+    </div>
+</body>
+</html>

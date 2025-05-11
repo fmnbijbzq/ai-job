@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>职称评审政策服务平台 - 服务对接</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .service-card {
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 24px;
+            height: 100%;
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .service-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 32px;
+        }
+        .expert-card {
+            border: 1px solid #f0f0f0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            transition: all 0.3s;
+        }
+        .expert-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .expert-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-right: 20px;
+        }
+        .rating {
+            color: #faad14;
+        }
+        .filter-btn {
+            padding: 6px 16px;
+            border-radius: 4px;
+            background-color: #f5f5f5;
+            border: none;
+            margin-right: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">职称评审政策服务平台</div>
+            <ul class="nav-menu">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="policy-search.html">政策查询</a></li>
+                <li><a href="self-assessment.html">资格自测</a></li>
+                <li><a href="service-matching.html" class="active">服务对接</a></li>
+            </ul>
+            <div class="user-actions">
+                <a href="profile.html">个人中心</a>
+                <button class="btn btn-primary">登录/注册</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 服务类型 -->
+            <div class="card mb-4">
+                <h1 class="card-title">专业服务</h1>
+                <p class="text-gray mb-4">为您提供全方位的职称评审服务支持，专家匹配精准度≥95%</p>
+                
+                <div class="row">
+                    <div class="col col-3">
+                        <div class="service-card">
+                            <div class="service-icon" style="background-color: #e6f7ff; color: #1890ff;">💬</div>
+                            <h3 style="margin-top: 0;">在线咨询</h3>
+                            <p class="text-gray text-sm mb-4">专家实时解答职称评审相关问题</p>
+                            <button class="btn btn-primary">立即咨询</button>
+                        </div>
+                    </div>
+                    <div class="col col-3">
+                        <div class="service-card">
+                            <div class="service-icon" style="background-color: #f6ffed; color: #52c41a;">📝</div>
+                            <h3 style="margin-top: 0;">材料审核</h3>
+                            <p class="text-gray text-sm mb-4">专业评审指导，提高申报成功率</p>
+                            <button class="btn btn-primary">申请审核</button>
+                        </div>
+                    </div>
+                    <div class="col col-3">
+                        <div class="service-card">
+                            <div class="service-icon" style="background-color: #f9f0ff; color: #722ed1;">📊</div>
+                            <h3 style="margin-top: 0;">评审规划</h3>
+                            <p class="text-gray text-sm mb-4">个性化申报方案，科学规划职称路径</p>
+                            <button class="btn btn-primary">获取规划</button>
+                        </div>
+                    </div>
+                    <div class="col col-3">
+                        <div class="service-card">
+                            <div class="service-icon" style="background-color: #fff7e6; color: #fa8c16;">🤝</div>
+                            <h3 style="margin-top: 0;">全程代办</h3>
+                            <p class="text-gray text-sm mb-4">一站式服务，省心省力省时间</p>
+                            <button class="btn btn-primary">了解详情</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 专家推荐 -->
+            <div class="card">
+                <div class="d-flex justify-between align-center mb-4">
+                    <h2 class="card-title mb-0">推荐专家</h2>
+                    <div class="d-flex align-center">
+                        <button class="filter-btn active">全部</button>
+                        <button class="filter-btn">教育</button>
+                        <button class="filter-btn">医疗</button>
+                        <button class="filter-btn">工程</button>
+                        <button class="filter-btn">科研</button>
+                    </div>
+                </div>
+                
+                <!-- 专家列表 -->
+                <div class="expert-list">
+                    <div class="expert-card">
+                        <div class="d-flex">
+                            <div class="expert-avatar"></div>
+                            <div style="flex: 1;">
+                                <div class="d-flex justify-between align-center mb-2">
+                                    <h3 style="margin: 0; font-size: 18px;">王教授</h3>
+                                    <div class="rating">★★★★★ <span class="text-gray">4.9</span></div>
+                                </div>
+                                <p class="text-gray text-sm mb-2">教育部职称评审专家 | 10年评审经验</p>
+                                <div class="mb-3">
+                                    <span class="tag tag-blue">教育领域</span>
+                                    <span class="tag tag-green">高校系列</span>
+                                    <span class="tag tag-purple">正高职称</span>
+                                </div>
+                                <p class="text-gray text-sm mb-3">专长：高校教师职称评审、科研成果认定、教学能力评估</p>
+                                <div class="d-flex justify-between align-center">
+                                    <div class="text-gray text-sm">已服务: 328人 | 好评率: 98%</div>
+                                    <button class="btn btn-primary">立即咨询</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expert-card">
+                        <div class="d-flex">
+                            <div class="expert-avatar"></div>
+                            <div style="flex: 1;">
+                                <div class="d-flex justify-between align-center mb-2">
+                                    <h3 style="margin: 0; font-size: 18px;">李顾问</h3>
+                                    <div class="rating">★★★★★ <span class="text-gray">4.8</span></div>
+                                </div>
+                                <p class="text-gray text-sm mb-2">人社局职称评审顾问 | 8年评审经验</p>
+                                <div class="mb-3">
+                                    <span class="tag tag-orange">工程领域</span>
+                                    <span class="tag tag-blue">建筑系列</span>
+                                    <span class="tag tag-green">全级别</span>
+                                </div>
+                                <p class="text-gray text-sm mb-3">专长：工程技术人员职称评审、项目经验认定、专利成果评估</p>
+                                <div class="d-flex justify-between align-center">
+                                    <div class="text-gray text-sm">已服务: 256人 | 好评率: 96%</div>
+                                    <button class="btn btn-primary">立即咨询</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="expert-card">
+                        <div class="d-flex">
+                            <div class="expert-avatar"></div>
+                            <div style="flex: 1;">
+                                <div class="d-flex justify-between align-center mb-2">
+                                    <h3 style="margin: 0; font-size: 18px;">张主任</h3>
+                                    <div class="rating">★★★★★ <span class="text-gray">4.7</span></div>
+                                </div>
+                                <p class="text-gray text-sm mb-2">卫健委职称评审专家 | 12年评审经验</p>
+                                <div class="mb-3">
+                                    <span class="tag tag-green">医疗领域</span>
+                                    <span class="tag tag-purple">卫生系列</span>
+                                    <span class="tag tag-blue">副高/正高</span>
+                                </div>
+                                <p class="text-gray text-sm mb-3">专长：医疗卫生系列职称评审、临床实践能力评估、医学论文指导</p>
+                                <div class="d-flex justify-between align-center">
+                                    <div class="text-gray text-sm">已服务: 189人 | 好评率: 97%</div>
+                                    <button class="btn btn-primary">立即咨询</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 查看更多 -->
+                <div class="text-center mt-4">
+                    <button class="btn btn-outline">查看更多专家</button>
+                </div>
+            </div>
+            
+            <!-- 服务保障 -->
+            <div class="card mt-4">
+                <h2 class="card-title">服务保障</h2>
+                <div class="row">
+                    <div class="col col-4">
+                        <div class="d-flex align-center mb-3">
+                            <div style="width: 48px; height: 48px; background-color: #e6f7ff; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px; color: #1890ff; font-size: 24px;">✓</div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 16px;">专业认证</h3>
+                                <p class="text-gray text-sm mb-0">所有专家均经过严格认证</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-4">
+                        <div class="d-flex align-center mb-3">
+                            <div style="width: 48px; height: 48px; background-color: #f6ffed; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px; color: #52c41a; font-size: 24px;">⏱</div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 16px;">响应保障</h3>
+                                <p class="text-gray text-sm mb-0">15分钟内专家响应</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col col-4">
+                        <div class="d-flex align-center mb-3">
+                            <div style="width: 48px; height: 48px; background-color: #fff7e6; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 16px; color: #fa8c16; font-size: 24px;">💰</div>
+                            <div>
+                                <h3 style="margin: 0; font-size: 16px;">退款保障</h3>
+                                <p class="text-gray text-sm mb-0">服务不满意，随时退款</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 底部 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2023 职称评审政策服务平台 版权所有</p>
+        </div>
+    </footer>
+</body>
+</html>
