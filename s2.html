@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MySQL内置函数实训作业</title>
+    <style>
+        body {
+            font-family: '微软雅黑', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 25px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, Monaco, monospace;
+        }
+        .important {
+            color: #c0392b;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>《MySQL数据库原理与应用》实训作业</h1>
+    
+    <h2>测试数据准备</h2>
+    <pre><code>CREATE DATABASE school;
+USE school;
+
+-- 学生表
+CREATE TABLE students (
+    stu_id INT PRIMARY KEY,
+    name VARCHAR(20),
+    birthdate DATE,
+    email VARCHAR(50),
+    score DECIMAL(5,2)
+);
+
+-- 插入测试数据
+INSERT INTO students VALUES
+(101, '王小明', '2003-08-15', 'wangxm@163.com', 87.5),
+(102, '李红', '2004-02-28', NULL, 92.3),
+(103, '张伟', '2002-11-05', 'zhangw@qq.com', 78.9),
+(104, '陈芳', '2005-05-17', 'chenf@hotmail.com', NULL);</code></pre>
+
+    <h2>题目一：基础函数应用</h2>
+    <ol>
+        <li>使用字符串函数生成学生邮箱简写：
+            <ul>
+                <li>格式：<code>姓名首字母_学号@school.com</code></li>
+                <li>示例：王小明 → <code>wxm_101@school.com</code></li>
+            </ul>
+        </li>
+        <li>计算学生的年龄（精确到年）：
+            <ul>
+                <li>使用<code>TIMESTAMPDIFF</code>函数</li>
+                <li>结果显示为<code>姓名 | 年龄</code></li>
+            </ul>
+        </li>
+        <li>成绩显示处理：
+            <ul>
+                <li>使用<code>ROUND</code>四舍五入到整数</li>
+                <li>使用<code>IFNULL</code>处理NULL值显示为"未考试"</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>题目二：条件与聚合函数</h2>
+    <ol>
+        <li>成绩分段统计：
+            <ul>
+                <li>使用<code>CASE WHEN</code>将成绩分为优(≥90)、良(80-89)、中(＜80)</li>
+                <li>显示<code>学号 | 姓名 | 成绩等级</code></li>
+            </ul>
+        </li>
+        <li>分组统计：
+            <ul>
+                <li>使用<code>COUNT</code>和<code>AVG</code>计算各等级人数及平均分</li>
+                <li>注意处理NULL值</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2>题目三：综合应用</h2>
+    <ol>
+        <li>生成学生信息简报：
+            <ul>
+                <li>使用<code>CONCAT</code>组合学号与姓名（格式：101-王小明）</li>
+                <li>使用<code>DATE_FORMAT</code>显示生日（格式：2003年08月15日）</li>
+                <li>使用<code>COALESCE</code>处理空邮箱</li>
+                <li>显示字段：<code>学生信息 | 生日 | 联系方式 | 标准化成绩</code></li>
+            </ul>
+        </li>
+    </ol>
+
+    <div class="important">
+        <p>提交要求：SQL脚本</p>
+        <p>建议执行验证语句：<code>SELECT * FROM students;</code></p>
+    </div>
+</body>
+</html>
